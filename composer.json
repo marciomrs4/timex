@@ -1,0 +1,21 @@
+{
+    "name": "timex/sla",
+    "description": "Calculate time date to date",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marcio Ramos",
+            "email": "marciomrs4@hotmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "6.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Timex\\":"src/"
+        }
+    }
+}
