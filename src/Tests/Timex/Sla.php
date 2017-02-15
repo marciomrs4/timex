@@ -36,8 +36,8 @@ class SlaTest extends TestCase
 
     public function testCalculateTime()
     {
-        $data1 = '2017-01-01 12:00:00';
-        $data2 = '2017-01-01 14:00:00';
+        $data1 = '2016-01-01 10:00:00';
+        $data2 = '2016-01-01 13:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
         $meiodia = '12:00';
