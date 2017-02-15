@@ -15,6 +15,8 @@ class Sla
   var $dFullAll;
 
   function formatDate ($data){ //Retorna saída no formado AAAA-MM-DD HH:mm:SS
+
+    /*
     $ano = 0;
     $mes = 0;
     $dia = 0;
@@ -22,7 +24,7 @@ class Sla
     $minuto = 0;
     $segundo = 0;
     //formato brasileiro com hora!!! ereg
-    if (ereg ("([0-9]{1,2})[/|-]([0-9]{1,2})[/|-]([0-9]{4}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})", $data, $sep)) {
+    if (preg_match("/([0-9]{2})-([0-9]{2})-([0-9]{4}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/", $data, $sep)) {
       $dia = $sep[1];
       $mes = $sep[2];
       $ano = $sep[3];
@@ -31,7 +33,7 @@ class Sla
       $segundo = $sep[6];
     } else
       //formato americano com hora
-      if (ereg ("([0-9]{4})[/|-]([0-9]{1,2})[/|-]([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})", $data, $sep)) {
+      if (preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/", $data, $sep)) {
         $dia = $sep[3];
         $mes = $sep[2];
         $ano = $sep[1];
@@ -42,7 +44,15 @@ class Sla
         print "Invalid date format!!";
     //$data = strtotime($ano."-".$mes."-".$dia." ".$hora.":".$minuto.":".$segundo);
     $data = $ano."-".$mes."-".$dia." ".$hora.":".$minuto.":".$segundo;
+
     return $data;
+*/
+    $dateFormat = new \DateTime($data);
+
+    $data =  $dateFormat->format('Y-m-d H:i:s');
+
+    return $data;
+
     //...
   }
   function setData1 ($data){
@@ -50,7 +60,11 @@ class Sla
     //....
   }
   function setData2 ($data){
-    $this->data2 = $this->formatDate($data);
+
+      $this->data2 = $this->formatDate($data);
+
+      var_dump($this->data2); exit();
+
     //....
   }
   function getData1 (){
@@ -59,6 +73,8 @@ class Sla
   function getData2 (){
     print $this->data2;
   }
+
+
   function secToHour($sec){ //Recebe valor formatado em segundos (valor inteiro) e retorna em formato de hora
     $h = intval($sec/3600);
     $sec -= $h*3600;
@@ -70,25 +86,42 @@ class Sla
     $v = $h.":".$m.":".$sec;
     return $v;
   }
+
+
+
   function hourToSec($hour){
+
     $s = 0;
     //if (ereg ("([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})", $hour, $sep)) {
-    if (ereg ("([0-9]{1,}):([0-9]{1,2}):([0-9]{1,2})", $hour, $sep)) {
+    if (preg_match("/([0-9]{1,}):([0-9]{1,2}):([0-9]{1,2})/", $hour, $sep)) {
+      //var_dump($sep);
+
       //$sep = explode(":",$hour);
+
+      //var_dump($sep); exit();
+
       $s= $sep[3];
       $s+=$sep[2]*60;
       $s+=$sep[1]*3600;
+
     }
     return $s;
   }
+
+
+
   function somadata($dias,$datahoje){ //Formato americano de data com hora
     // Desmembra Data -------------------------------------------------------------
     //FORMATO VÃ�LIDO: ANO-MES-DIA
-    if (ereg ("([0-9]{4})-([0-9]{1,2})-([0-9]{1,2}) ([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})", $datahoje, $sep)) {
+
+
+    if(preg_match("/([0-9]{4})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/", $datahoje, $sep)){
+
       $dia = $sep[3];
       $mes = $sep[2];
       $ano = $sep[1];
       $time = $sep[4].":".$sep[5].":".$sep[6];
+
     } else {
       echo "<b>Invalid date format (valid format: aaaa-mm-dd) - $datahoje</b><br>";
     }
@@ -135,6 +168,7 @@ class Sla
     //print $nova_data;
     return $nova_data;
   }//fecha a funÃ§Ã¢o data
+
   function fullDays($data1,$data2){
     $fullDays = false;
     $fisrt_is_minor = false;
