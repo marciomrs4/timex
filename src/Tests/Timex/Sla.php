@@ -40,17 +40,17 @@ class SlaTest extends TestCase
 
     public function testCalculateTimeFirstCenario()
     {
-        $data1 = '2016-01-01 10:00:00';
+        $data1 = '2016-01-01 11:00:00';
         $data2 = '2016-01-01 13:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '00';
         $saida = 'H';
 
         $tempo = $this->sla->tempo_valido($data1,$data2,$horaInicio,$horaFim,$meiodia,$sabado,$saida);
 
-        $this->assertEquals($tempo,'02:00:00');
+        $this->assertEquals($tempo,'01:00:00');
     }
 
     public function testCalculateTimeSecundCenario()
@@ -59,7 +59,7 @@ class SlaTest extends TestCase
         $data2 = '2017-02-07 13:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '00';
         $saida = 'H';
 
@@ -75,7 +75,7 @@ class SlaTest extends TestCase
         $data2 = '2017-02-08 13:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '00';
         $saida = 'H';
 
@@ -90,7 +90,7 @@ class SlaTest extends TestCase
         $data2 = '2017-02-06 17:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '00';
         $saida = 'H';
 
@@ -107,7 +107,7 @@ class SlaTest extends TestCase
         $data2 = '2017-02-06 18:00:00';
         $horaInicio = '07:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '00';
         $saida = 'H';
 
@@ -124,7 +124,7 @@ class SlaTest extends TestCase
         $data2 = '2017-02-04 13:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '04';
         $saida = 'H';
 
@@ -140,7 +140,7 @@ class SlaTest extends TestCase
         $data2 = '2017-02-13 14:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '04';
         $saida = 'H';
 
@@ -157,7 +157,7 @@ class SlaTest extends TestCase
         $data2 = '2017-02-20 14:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
-        $meiodia = '12:00';
+        $meiodia = '12';
         $sabado = '04';
         $saida = 'H';
 
