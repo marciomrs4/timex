@@ -53,6 +53,9 @@ class SlaTest extends TestCase
         $this->assertEquals($tempo,'01:00:00');
     }
 
+    /**
+     * @
+     */
     public function testCalculateTimeSecundCenario()
     {
         $data1 = '2017-02-06 10:00:00';

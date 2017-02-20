@@ -2,6 +2,16 @@
 
 namespace Timex;
 
+/**
+ * Class Sla
+ * @package Timex
+ * @autor Márcio Ramos
+ * @name Sla
+ * @license MIT
+ * @version 2.0.0
+ * @since 09/02/2017
+ * @umacoisabla coisablaadd
+ */
 class Sla
 {
     public $data1; //Primeira parâmetro de data
@@ -17,6 +27,12 @@ class Sla
     /**
      * @param $data
      * @return //Retorna saída no formado AAAA-MM-DD HH:mm:SS
+     * @throws none
+     * @name formatDate
+     * @author Márcio Ramos <marciomrs4@hotmail.com>
+     * @version 2.0.0
+     * @since 19/02/2017
+
      */
     public function formatDate ($data)
     {
@@ -155,7 +171,7 @@ class Sla
         }
         $this->dFullAll = array("fullDays"=>$fullDays, "first_is_minor"=>$first_is_minor);
         //return $fullDays;
-       return $this->dFullAll;
+        return $this->dFullAll;
     }
 
     //Parâmetros em segundos - data1: data mais antiga - data2: data mais recente (SEMPRE NO FORMATO AMERICANO!!!
@@ -233,16 +249,18 @@ class Sla
         /*Warning: Caso não tenha o retorno Isso impacta no calculo do final de semana*/
         return $domingo;
     }
-    //Retorna o tempo vÃ¡lido em horas ou segundos entre duas datas descontando finais de semana e feriados.
-    //TambÃ©m desconta os horÃ¡rios fora da carga horÃ¡ria de cada Ã¡rea.
-    //Colocar parâmetro para identificar o tempo de intervalo
-    //PARAMETROS:
-    //	hora_ini: inicio da jornada
-    //	hora_fim: final da jornada
-    //	meio_dia: intervalo
-    //	sabado: total de horas trabalhadas nos sábados
-    //	saida: formato da saída da função, se será em horas ou segundos
-
+    /**
+     * @todo Retorna o tempo vÃ¡lido em horas ou segundos entre duas datas descontando finais de semana e feriados.
+     * TambÃ©m desconta os horÃ¡rios fora da carga horÃ¡ria de cada Ã¡rea.
+     * Colocar parâmetro para identificar o tempo de intervalo
+     * PARAMETROS:
+     * @param $hora_ini: inicio da jornada
+     * @param $hora_fim: final da jornada
+     * @param $meio_dia: intervalo
+     * @param $sabado: total de horas trabalhadas nos sábados
+     * @param $saida: formato da saída da função, se será em horas ou segundos
+     * @return $horautil
+     */
     public function tempo_valido($data1,$data2,$hora_ini,$hora_fim,$meio_dia,$sabado,$saida)
     {
         set_time_limit(300);
