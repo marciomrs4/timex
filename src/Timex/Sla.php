@@ -416,7 +416,7 @@ class Sla
             //$domingos = dias_invalidos($data1,$data2)-$feriados_domingo;##### //Quantos Domingos existem no perÃ­odo
             $domingos = $this->diasDomingo($data1,$data2)-$feriados_domingo;
             $sabados = $this->diasDomingo($data1,$data2)-$feriados_sabado;
-            (string)$domingo = $hora_fim - $hora_ini; //PerÃ­odo de horas normalmente trabalhadas durante a semana que precisam ser...
+            (int)$domingo = $hora_fim - $hora_ini; //PerÃ­odo de horas normalmente trabalhadas durante a semana que precisam ser...
             //.. descontadas dos Domingos!!
             if ($meio_dia > $hora_ini && $meio_dia < $hora_fim) { //Se existe intervalo (almoÃ§o) na carga horÃ¡ria!
                 $domingo--;
