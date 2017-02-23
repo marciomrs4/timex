@@ -4,7 +4,6 @@ script: phpunit --verbose --coverage-text
 php:
   - 7.0
   - 7.0.15
-  - 7.0.16
 
 before_script:
   - "composer install -v"
