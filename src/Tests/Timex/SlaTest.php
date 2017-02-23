@@ -157,14 +157,14 @@ class SlaTest extends TestCase
     public function testCalculateTimeIncludeTwoWeekendCenario()
     {
         $data1 = '2017-02-10 10:00:00';
-        $data2 = '2017-02-20 14:00:00';
+        $data2 = '2017-02-20 15:00:00';
         $horaInicio = '08:00';
         $horaFim = '18:00';
         $meiodia = '12';
         $sabado = '04';
         $saida = 'H';
 
-        $esperado = '66:00:00';
+        $esperado = '67:00:00';
 
         $tempo = $this->sla->tempo_valido($data1,$data2,$horaInicio,$horaFim,$meiodia,$sabado,$saida);
 
