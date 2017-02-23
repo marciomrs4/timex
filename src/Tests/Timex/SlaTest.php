@@ -156,6 +156,9 @@ class SlaTest extends TestCase
 
     public function testCalculateTimeIncludeTwoWeekendCenario()
     {
+
+        date_default_timezone_set('America/Sao_Paulo');
+
         $data1 = '2017-02-10 10:00:00';
         $data2 = '2017-02-20 15:00:00';
         $horaInicio = '08:00';
